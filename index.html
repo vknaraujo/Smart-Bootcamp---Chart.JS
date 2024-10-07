@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+		<title>SMART BOOTCAMP - Chart.JS</title>
+		<style>
+			body {
+				font-family: "Quicksand", system-ui;
+				font-optical-sizing: auto;
+				font-weight: 500;
+				font-style: normal;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			.container {
+				display: flex;
+				width: 100%;
+			}
+
+			#line-chart,
+			#bar-chart {
+				width: 48% !important;
+				height: 48% !important;
+				margin: 1%;
+				padding: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>SMART BOOTCAMP - Chart.JS</h1>
+		<div class="container">
+			<canvas id="line-chart"></canvas>
+			<canvas id="bar-chart"></canvas>
+		</div>
+
+		<script>
+			var ctx = document.getElementById("line-chart").getContext("2d");
+			var chart = new Chart(ctx, {
+				type: "line",
+				data: {
+					labels: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+					datasets: [
+						{
+							label: "Temperatura",
+							data: [30, 29, 28, 25, 22, 23],
+							backgroundColor: "#ff60ddbd",
+							borderColor: "#ff60dd",
+							borderWidth: 4,
+						},
+						{
+							label: "Umidade",
+							data: [80, 82, 80, 85, 80, 83],
+							backgroundColor: "#18b6ffbd",
+							borderColor: "#18b6ff",
+							borderWidth: 4,
+						},
+					],
+				},
+				options: {
+					title: {
+						display: true,
+						text: "Gráfico de Linhas",
+					},
+					scales: {
+						y: {
+							beginAtZero: true,
+						},
+					},
+				},
+			});
+
+			var ctx2 = document.getElementById("bar-chart").getContext("2d");
+			var chart2 = new Chart(ctx2, {
+				type: "bar",
+				data: {
+					labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+					datasets: [
+						{
+							label: "Temperatura Média",
+							data: [22, 24, 27, 23, 20, 18],
+							backgroundColor: "#ff60ddbd",
+							borderColor: "#ff60dd",
+							borderWidth: 1,
+						},
+						{
+							label: "Umidade Média",
+							data: [90, 89, 93, 87, 88, 82],
+							backgroundColor: "#18b6ffbd",
+							borderColor: "#18b6ff",
+							borderWidth: 1,
+						},
+					],
+				},
+				options: {
+					title: {
+						display: true,
+						text: "Gráfico de Barras",
+					},
+					scales: {
+						y: {
+							beginAtZero: true,
+						},
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
